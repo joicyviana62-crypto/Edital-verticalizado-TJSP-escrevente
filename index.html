@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TJSP - Edital Verticalizado</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+    <aside class="sidebar">
+
+        <h1>TJSP</h1>
+
+        <p class="subtitulo">
+            Edital Verticalizado
+        </p>
+
+        <nav>
+
+            <button class="menu-btn">
+                📚 Português
+            </button>
+
+            <button class="menu-btn">
+                ⚖ Direito
+            </button>
+
+            <button class="menu-btn">
+                🌎 Atualidades
+            </button>
+
+            <button class="menu-btn">
+                ➗ Matemática
+            </button>
+
+            <button class="menu-btn">
+                💻 Informática
+            </button>
+
+            <button class="menu-btn">
+                🧠 Raciocínio Lógico
+            </button>
+
+        </nav>
+
+    </aside>
+
+    <main class="conteudo">
+
+        <header>
+
+            <h2>
+                Concurso TJSP
+            </h2>
+
+            <button id="modoEscuro">
+                🌙 Modo Escuro
+            </button>
+
+        </header>
+
+        <section class="dashboard">
+
+            <div class="card">
+
+                <h3>Progresso Geral</h3>
+
+                <div class="barra">
+
+                    <div id="barraGeral"></div>
+
+                </div>
+
+                <p id="textoProgresso">
+                    0%
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Teoria</h3>
+
+                <span id="totalTeoria">
+                    0
+                </span>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Revisão</h3>
+
+                <span id="totalRevisao">
+                    0
+                </span>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Questões</h3>
+
+                <span id="totalQuestoes">
+                    0
+                </span>
+
+            </div>
+
+        </section>
+
+        <section class="pesquisa">
+
+            <input
+                type="text"
+                id="pesquisar"
+                placeholder="Pesquisar assunto...">
+
+        </section>
+
+        <section class="acoes">
+
+            <button id="marcarTudo">
+                ✅ Marcar Tudo
+            </button>
+
+            <button id="desmarcarTudo">
+                ❌ Limpar Tudo
+            </button>
+
+            <button id="exportar">
+                💾 Exportar Progresso
+            </button>
+
+        </section>
+
+        <section class="tabela">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>Disciplina</th>
+
+                    <th>Assunto</th>
+
+                    <th>Teoria</th>
+
+                    <th>Revisão</th>
+
+                    <th>Questões</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody id="tabelaEdital">
+
+                <!-- O JavaScript preencherá automaticamente -->
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="edital.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
