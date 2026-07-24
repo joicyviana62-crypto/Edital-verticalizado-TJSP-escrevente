@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Roboto+Mono:wght@300;400;500&display=swap');
-@font-face{font-family:'Camera Plain Variable';src:url('https://lovable.dev/assets/CameraPlainVariable-c48bd243-BhPypTEq.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:block;}
 
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Camera Plain Variable',sans-serif;
+  font-family:inherit;
 }
 
 :root{
@@ -29,6 +28,7 @@
 
 body{
   min-height:100vh;
+  font-family:'Inter', 'Roboto', sans-serif;
   background: radial-gradient(circle at top left, rgba(125, 75, 255, 0.16), transparent 24%),
               radial-gradient(circle at bottom right, rgba(34, 211, 238, 0.12), transparent 28%),
               linear-gradient(180deg, #050813 0%, #091228 38%, #0d1429 100%);
@@ -89,17 +89,20 @@ body.light .sidebar{
 }
 
 .sidebar h1{
-  font-size:2.6rem;
-  letter-spacing:0.12em;
-  text-transform:uppercase;
+  font-size:2.2rem;
+  letter-spacing:0.04em;
+  text-transform:none;
+  font-weight:700;
 }
 
 .subtitulo{
   margin-top:12px;
   margin-bottom:34px;
   color:var(--muted);
-  line-height:1.7;
-  max-width:230px;
+  line-height:1.6;
+  max-width:280px;
+  font-size:1rem;
+  text-transform:none;
 }
 
 .sidebar nav{
@@ -192,14 +195,14 @@ header{
 }
 
 header h2{
-  font-size:3rem;
-  line-height:1.02;
-  letter-spacing:0.08em;
-  font-weight:300;
-  font-family:'Roboto Mono', monospace;
-  color:#ddc16b;
+  font-size:2.4rem;
+  line-height:1.1;
+  letter-spacing:0.02em;
+  font-weight:600;
+  font-family:inherit;
+  color:var(--text);
   text-align:center;
-  text-shadow:0 4px 18px rgba(0,0,0,0.18);
+  text-shadow:none;
 }
 
 #modoEscuro{
