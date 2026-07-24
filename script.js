@@ -353,12 +353,14 @@ document.getElementById("exportar").addEventListener("click",()=>{
 const botaoModo=document.getElementById("modoEscuro");
 
 function aplicarTema(){
-    const tema=localStorage.getItem("tema") || "claro";
+    const tema=localStorage.getItem("tema") || "escuro";
 
     if(tema==="escuro"){
         document.body.classList.add("dark");
+        document.body.classList.remove("light");
         botaoModo.innerHTML="☀ Modo Claro";
     } else {
+        document.body.classList.add("light");
         document.body.classList.remove("dark");
         botaoModo.innerHTML="🌙 Modo Escuro";
     }
@@ -368,6 +370,7 @@ aplicarTema();
 
 botaoModo.addEventListener("click",()=>{
     const estaEscuro=document.body.classList.toggle("dark");
+    document.body.classList.toggle("light", !estaEscuro);
     localStorage.setItem("tema", estaEscuro ? "escuro" : "claro");
     aplicarTema();
 });
