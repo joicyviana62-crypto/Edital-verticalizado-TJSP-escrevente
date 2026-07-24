@@ -6,10 +6,13 @@
 
 // Recupera progresso salvo
 let progresso = JSON.parse(localStorage.getItem("progressoTJSP")) || {};
+let filtroDisciplina = localStorage.getItem("filtroDisciplina") || "";
 
 // Elementos da página
 const tabela = document.getElementById("tabelaEdital");
 const pesquisa = document.getElementById("pesquisar");
+const botoesDisciplina = document.querySelectorAll(".menu-btn");
+const botaoLimparFiltros = document.getElementById("limparFiltros");
 
 const barra = document.getElementById("barraGeral");
 const texto = document.getElementById("textoProgresso");
@@ -25,8 +28,23 @@ const questoesTotal = document.getElementById("totalQuestoes");
 function carregarTabela(){
 
     tabela.innerHTML="";
+    const exibidos = filtroDisciplina === ""
+        ? edital
+        : edital.filter(item => item.disciplina === filtroDisciplina);
 
-    edital.forEach((item)=>{
+    if(exibidos.length === 0){
+        tabela.innerHTML = `
+            <tr>
+                <td colspan="5" style="text-align:center; padding:28px; color:var(--muted);">
+                    Selecione uma disciplina para ver o edital.
+                </td>
+            </tr>
+        `;
+        restaurarDados();
+        return;
+    }
+
+    exibidos.forEach((item)=>{
 
         const linha=document.createElement("tr");
 
@@ -365,6 +383,44 @@ function aplicarTema(){
         botaoModo.innerHTML="🌙 Modo Escuro";
     }
 }
+
+function atualizarBotoesDisciplina(){
+    botoesDisciplina.forEach(botao => {
+        const disciplina = botao.dataset.disciplina;
+        botao.classList.toggle("selected", disciplina === filtroDisciplina);
+    });
+    if(filtroDisciplina === ""){
+        botaoLimparFiltros.textContent = "✨ Limpar filtros";
+    } else {
+        botaoLimparFiltros.textContent = "🔄 Mostrar todas";
+    }
+}
+
+function alternarFiltroDisciplina(disciplina){
+    if(filtroDisciplina === disciplina){
+        filtroDisciplina = "";
+    } else {
+        filtroDisciplina = disciplina;
+    }
+    localStorage.setItem("filtroDisciplina", filtroDisciplina);
+    atualizarBotoesDisciplina();
+    carregarTabela();
+}
+
+botoesDisciplina.forEach(botao => {
+    botao.addEventListener("click", () => {
+        alternarFiltroDisciplina(botao.dataset.disciplina);
+    });
+});
+
+document.getElementById("limparFiltros").addEventListener("click",()=>{
+    filtroDisciplina = "";
+    localStorage.setItem("filtroDisciplina", "");
+    atualizarBotoesDisciplina();
+    carregarTabela();
+});
+
+atualizarBotoesDisciplina();
 
 aplicarTema();
 
