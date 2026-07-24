@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Roboto+Mono:wght@300;400;500&display=swap');
 @font-face{font-family:'Camera Plain Variable';src:url('https://lovable.dev/assets/CameraPlainVariable-c48bd243-BhPypTEq.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:block;}
 
 *{
@@ -188,16 +188,19 @@ header{
   letter-spacing:0.22em;
   font-size:0.76rem;
   color:var(--accent);
+  font-family:'Roboto Mono', monospace;
+  font-weight:500;
 }
 
 header h2{
   font-size:3rem;
   line-height:1.02;
-  letter-spacing:0em;
-  font-weight:400;
-  font-family:'Pacifico', cursive;
-  color: #ddc16b;
+  letter-spacing:0.08em;
+  font-weight:300;
+  font-family:'Roboto Mono', monospace;
+  color:#ddc16b;
   text-align:center;
+  text-shadow:0 4px 18px rgba(0,0,0,0.18);
 }
 
 #modoEscuro{
@@ -524,9 +527,9 @@ body.dark{
 }
 
 body.light{
-  --bg:#eff2ff;
+  --bg:#e9f5ff;
   --surface:#ffffff;
-  --panel:#f8fafc;
+  --panel:#f0f8ff;
   --text:#0f172a;
   --muted:#64748b;
   --border:#dbe4ee;
@@ -541,7 +544,7 @@ body.light{
 }
 
 body.light{
-  background:linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+  background:linear-gradient(180deg, #e0f2fe 0%, #dbeafe 100%);
 }
 
 body{
@@ -706,7 +709,18 @@ header h2{
 }
 
 body.light .card{
-  border-color:rgba(15,23,42,0.08);
+  background:#f8fbff;
+  border-color:rgba(67,100,150,0.16);
+  box-shadow:0 20px 48px rgba(15,23,42,0.08);
+}
+
+body.light .card h3{
+  color:#64748b;
+}
+
+body.light .card span,
+body.light .card p{
+  color:#1f2937;
 }
 
 .card h3{
