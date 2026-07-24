@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @font-face{font-family:'Camera Plain Variable';src:url('https://lovable.dev/assets/CameraPlainVariable-c48bd243-BhPypTEq.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:block;}
 
 *{
@@ -167,16 +168,19 @@ body.light .menu-btn{
 
 header{
   display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:16px;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  gap:14px;
   margin-bottom:34px;
 }
 
 .header-title{
   display:flex;
   flex-direction:column;
-  gap:10px;
+  justify-content:center;
+  align-items:center;
+  width:100%;
 }
 
 .header-title .eyebrow{
@@ -187,10 +191,13 @@ header{
 }
 
 header h2{
-  font-size:2.75rem;
+  font-size:3rem;
   line-height:1.02;
-  letter-spacing:-0.04em;
-  font-weight:800;
+  letter-spacing:0em;
+  font-weight:400;
+  font-family:'Pacifico', cursive;
+  color: #ddc16b;
+  text-align:center;
 }
 
 #modoEscuro{
