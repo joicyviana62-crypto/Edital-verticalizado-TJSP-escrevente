@@ -5,9 +5,33 @@
     font-family:'Poppins',sans-serif;
 }
 
+:root{
+    --bg:#f4f6f9;
+    --text:#222;
+    --sidebar-bg:#1f2937;
+    --sidebar-text:#ffffff;
+    --sidebar-subtitle:#cbd5e1;
+    --menu-btn-bg:#374151;
+    --menu-btn-hover:#4f46e5;
+    --content-bg:transparent;
+    --card-bg:#ffffff;
+    --card-shadow:0 5px 15px rgba(0,0,0,.08);
+    --panel-bg:#e5e7eb;
+    --progress-bg:#4f46e5;
+    --input-bg:#ffffff;
+    --input-border:#ddd;
+    --button-bg:#4f46e5;
+    --button-hover-opacity:.9;
+    --table-bg:#ffffff;
+    --thead-bg:#4f46e5;
+    --thead-color:#ffffff;
+    --row-hover:#f7f7f7;
+    --button-text:#ffffff;
+}
+
 body{
-    background:#f4f6f9;
-    color:#222;
+    background:var(--bg);
+    color:var(--text);
 }
 
 .container{
@@ -19,8 +43,8 @@ body{
 
 .sidebar{
     width:260px;
-    background:#1f2937;
-    color:white;
+    background:var(--sidebar-bg);
+    color:var(--sidebar-text);
     padding:30px;
     position:fixed;
     left:0;
@@ -36,14 +60,14 @@ body{
 .subtitulo{
     margin-top:5px;
     margin-bottom:30px;
-    color:#cbd5e1;
+    color:var(--sidebar-subtitle);
 }
 
 .menu-btn{
     width:100%;
     border:none;
-    background:#374151;
-    color:white;
+    background:var(--menu-btn-bg);
+    color:var(--sidebar-text);
     padding:14px;
     margin-bottom:12px;
     border-radius:10px;
@@ -54,7 +78,7 @@ body{
 }
 
 .menu-btn:hover{
-    background:#4f46e5;
+    background:var(--menu-btn-hover);
 }
 
 /* CONTEÚDO */
@@ -63,6 +87,8 @@ body{
     margin-left:260px;
     width:100%;
     padding:35px;
+    background:var(--content-bg);
+    transition:background .3s, color .3s;
 }
 
 header{
@@ -83,6 +109,7 @@ header h2{
     padding:12px 18px;
     border-radius:10px;
     cursor:pointer;
+    transition:background .3s, color .3s;
 }
 
 /* DASHBOARD */
@@ -95,10 +122,11 @@ header h2{
 }
 
 .card{
-    background:white;
+    background:var(--card-bg);
     padding:20px;
     border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    box-shadow:var(--card-shadow);
+    transition:background .3s, color .3s, box-shadow .3s;
 }
 
 .card h3{
@@ -114,7 +142,7 @@ header h2{
 .barra{
     width:100%;
     height:15px;
-    background:#e5e7eb;
+    background:var(--panel-bg);
     border-radius:20px;
     overflow:hidden;
     margin-bottom:10px;
@@ -123,7 +151,7 @@ header h2{
 #barraGeral{
     width:0%;
     height:100%;
-    background:#4f46e5;
+    background:var(--progress-bg);
     transition:.4s;
 }
 
@@ -136,9 +164,12 @@ header h2{
 #pesquisar{
     width:100%;
     padding:14px;
-    border:1px solid #ddd;
+    border:1px solid var(--input-border);
     border-radius:10px;
     font-size:15px;
+    background:var(--input-bg);
+    color:var(--text);
+    transition:background .3s, color .3s, border-color .3s;
 }
 
 /* BOTÕES */
@@ -151,8 +182,8 @@ header h2{
 
 .acoes button{
     border:none;
-    background:#4f46e5;
-    color:white;
+    background:var(--button-bg);
+    color:var(--button-text);
     padding:13px 18px;
     border-radius:10px;
     cursor:pointer;
@@ -160,7 +191,7 @@ header h2{
 }
 
 .acoes button:hover{
-    opacity:.9;
+    opacity:var(--button-hover-opacity);
 }
 
 /* TABELA */
@@ -168,15 +199,16 @@ header h2{
 table{
     width:100%;
     border-collapse:collapse;
-    background:white;
+    background:var(--table-bg);
     border-radius:15px;
     overflow:hidden;
     box-shadow:0 5px 15px rgba(0,0,0,.08);
+    transition:background .3s, color .3s;
 }
 
 thead{
-    background:#4f46e5;
-    color:white;
+    background:var(--thead-bg);
+    color:var(--thead-color);
 }
 
 th,
@@ -187,7 +219,7 @@ td{
 }
 
 tbody tr:hover{
-    background:#f7f7f7;
+    background:var(--row-hover);
 }
 
 /* CHECKBOX */
@@ -195,6 +227,39 @@ tbody tr:hover{
 input[type=checkbox]{
     transform:scale(1.2);
     cursor:pointer;
+}
+
+/* MODO ESCURO */
+
+body.dark{
+    --bg:#0f172a;
+    --text:#e2e8f0;
+    --sidebar-bg:#111827;
+    --sidebar-text:#e2e8f0;
+    --sidebar-subtitle:#94a3b8;
+    --menu-btn-bg:#1f2937;
+    --menu-btn-hover:#4338ca;
+    --content-bg:transparent;
+    --card-bg:#111827;
+    --card-shadow:0 5px 15px rgba(0,0,0,.35);
+    --panel-bg:#1f2937;
+    --progress-bg:#8b5cf6;
+    --input-bg:#15202b;
+    --input-border:#334155;
+    --button-bg:#6366f1;
+    --table-bg:#111827;
+    --thead-bg:#4338ca;
+    --thead-color:#ffffff;
+    --row-hover:#1f2937;
+}
+
+body.dark #modoEscuro{
+    background:#e2e8f0;
+    color:#111827;
+}
+
+body.dark input[type=checkbox]{
+    accent-color:#8b5cf6;
 }
 
 /* RESPONSIVO */

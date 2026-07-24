@@ -352,34 +352,24 @@ document.getElementById("exportar").addEventListener("click",()=>{
 
 const botaoModo=document.getElementById("modoEscuro");
 
-if(localStorage.getItem("tema")=="escuro"){
+function aplicarTema(){
+    const tema=localStorage.getItem("tema") || "claro";
 
-    document.body.classList.add("dark");
-
-    botaoModo.innerHTML="☀ Modo Claro";
-
+    if(tema==="escuro"){
+        document.body.classList.add("dark");
+        botaoModo.innerHTML="☀ Modo Claro";
+    } else {
+        document.body.classList.remove("dark");
+        botaoModo.innerHTML="🌙 Modo Escuro";
+    }
 }
 
+aplicarTema();
+
 botaoModo.addEventListener("click",()=>{
-
-    document.body.classList.toggle("dark");
-
-    if(document.body.classList.contains("dark")){
-
-        localStorage.setItem("tema","escuro");
-
-        botaoModo.innerHTML="☀ Modo Claro";
-
-    }
-
-    else{
-
-        localStorage.setItem("tema","claro");
-
-        botaoModo.innerHTML="🌙 Modo Escuro";
-
-    }
-
+    const estaEscuro=document.body.classList.toggle("dark");
+    localStorage.setItem("tema", estaEscuro ? "escuro" : "claro");
+    aplicarTema();
 });
 
 
