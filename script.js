@@ -8,6 +8,22 @@
 let progresso = JSON.parse(localStorage.getItem("progressoTJSP")) || {};
 let filtroDisciplina = localStorage.getItem("filtroDisciplina") || "";
 
+const gruposDisciplina = {
+    portugues: ["Língua Portuguesa"],
+    direito: [
+        "Direito Penal",
+        "Direito Processual Penal",
+        "Direito Processual Civil",
+        "Direito Constitucional",
+        "Direito Administrativo",
+        "Legislação Interna do TJSP"
+    ],
+    atualidades: ["Atualidades", "Estatuto da Pessoa com Deficiência"],
+    matematica: ["Matemática"],
+    informatica: ["Informática"],
+    "raciocinio-logico": ["Raciocínio Lógico"]
+};
+
 // Elementos da página
 const tabela = document.getElementById("tabelaEdital");
 const pesquisa = document.getElementById("pesquisar");
@@ -30,7 +46,7 @@ function carregarTabela(){
     tabela.innerHTML="";
     const exibidos = filtroDisciplina === ""
         ? edital
-        : edital.filter(item => item.disciplina === filtroDisciplina);
+        : edital.filter(item => gruposDisciplina[filtroDisciplina]?.includes(item.disciplina));
 
     if(exibidos.length === 0){
         tabela.innerHTML = `
@@ -386,8 +402,8 @@ function aplicarTema(){
 
 function atualizarBotoesDisciplina(){
     botoesDisciplina.forEach(botao => {
-        const disciplina = botao.dataset.disciplina;
-        botao.classList.toggle("selected", disciplina === filtroDisciplina);
+        const filtro = botao.dataset.filtro;
+        botao.classList.toggle("selected", filtro === filtroDisciplina);
     });
     if(filtroDisciplina === ""){
         botaoLimparFiltros.textContent = "✨ Limpar filtros";
@@ -396,11 +412,11 @@ function atualizarBotoesDisciplina(){
     }
 }
 
-function alternarFiltroDisciplina(disciplina){
-    if(filtroDisciplina === disciplina){
+function alternarFiltroDisciplina(filtro){
+    if(filtroDisciplina === filtro){
         filtroDisciplina = "";
     } else {
-        filtroDisciplina = disciplina;
+        filtroDisciplina = filtro;
     }
     localStorage.setItem("filtroDisciplina", filtroDisciplina);
     atualizarBotoesDisciplina();
@@ -409,7 +425,7 @@ function alternarFiltroDisciplina(disciplina){
 
 botoesDisciplina.forEach(botao => {
     botao.addEventListener("click", () => {
-        alternarFiltroDisciplina(botao.dataset.disciplina);
+        alternarFiltroDisciplina(botao.dataset.filtro);
     });
 });
 
