@@ -268,6 +268,16 @@ header h2{
   transition:transform .25s ease, border-color .25s ease;
 }
 
+body.light .discipline-card{
+  background:#e8f4ff;
+  border-color:rgba(137,182,223,0.28);
+  box-shadow:0 22px 60px rgba(62,97,138,0.08);
+}
+
+body.light .discipline-card:hover{
+  border-color:rgba(34,102,178,0.32);
+}
+
 .discipline-card:hover{
   transform:translateY(-3px);
   border-color:rgba(216,183,74,0.24);
