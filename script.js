@@ -6,7 +6,6 @@
 
 // Recupera progresso salvo
 let progresso = JSON.parse(localStorage.getItem("progressoTJSP")) || {};
-let filtroDisciplina = localStorage.getItem("filtroDisciplina") || "";
 
 const gruposDisciplina = {
     portugues: ["Língua Portuguesa"],
@@ -23,6 +22,36 @@ const gruposDisciplina = {
     informatica: ["Informática"],
     "raciocinio-logico": ["Raciocínio Lógico"]
 };
+
+const filtroPorValor = {
+    portugues: "portugues",
+    "língua portuguesa": "portugues",
+    direito: "direito",
+    "direito penal": "direito",
+    "direito processual penal": "direito",
+    "direito processual civil": "direito",
+    "direito constitucional": "direito",
+    "direito administrativo": "direito",
+    "legislação interna do tjsp": "direito",
+    atualidades: "atualidades",
+    "estato da pessoa com deficiência": "atualidades",
+    matematica: "matematica",
+    matemática: "matematica",
+    informatica: "informatica",
+    informática: "informatica",
+    "raciocínio lógico": "raciocinio-logico",
+    "raciocinio lógico": "raciocinio-logico"
+};
+
+function normalizarTexto(texto){
+    return texto ? texto.toString().trim().toLowerCase() : "";
+}
+
+function resolverFiltro(valor){
+    return filtroPorValor[normalizarTexto(valor)] || "";
+}
+
+let filtroDisciplina = resolverFiltro(localStorage.getItem("filtroDisciplina") || "");
 
 // Elementos da página
 const tabela = document.getElementById("tabelaEdital");
