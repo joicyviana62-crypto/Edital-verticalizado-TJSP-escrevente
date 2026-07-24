@@ -58,6 +58,10 @@ body.light{
   background:linear-gradient(180deg, #9dd8ff 0%, #c7e8ff 35%, #eef7ff 100%);
 }
 
+body.light header h2{
+  color:var(--text);
+}
+
 body{
   background-color:var(--bg);
 }
@@ -674,13 +678,6 @@ header{
   align-items:flex-end;
   gap:24px;
   margin-bottom:36px;
-}
-
-header h2{
-  font-size:3rem;
-  line-height:1.05;
-  letter-spacing:-0.02em;
-  font-weight:700;
 }
 
 #modoEscuro{
